@@ -12,11 +12,11 @@ class graphicObjects
 {
 private:
     // 0:RIGHT,1:TOP,2:LEFT,3:DOWN
-    char _direction;
+
 
     point _pos;
 
-    float _speed;
+
     int _fieldLimtRight, _fieldLimitLeft, _fieldLimitTop, _fieldLimitBot;
     QList <point> _hitAreaRight, _hitAreaLeft, _hitAreaUp, _hitAreaDown;
     //unsigned char _keyPosRight, _keyPosLeft, _keySpeedUp, _keySpeedDown;
@@ -28,6 +28,8 @@ protected:
     void fillHitArea();
     QList <graphicChar> _graphRight, _graphLeft, _graphUp, _graphDown;
     int _hitPower;
+    float _speed;
+    char _direction;
 public:
     //Initialize all members
     graphicObjects();

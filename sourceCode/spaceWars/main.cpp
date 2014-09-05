@@ -3,6 +3,7 @@
 #include "graphicchar.h"
 #include "graphicobjects.h"
 #include "ship.h"
+#include "conio.h"
 int main(int argc, char *argv[])
 {
     /*
@@ -283,20 +284,30 @@ int main(int argc, char *argv[])
     }
 */
     QList<ship> gos;
-    gos.append(ship(point(5,5),0.003,DIR_RIGHT,50,0,0,30));
-    gos.append(ship(point(5,5),0.003,DIR_DOWN,50,0,0,30));
-    gos.append(ship(point(10,30),0.002,DIR_TOP,50,0,0,30));
-    gos.append(ship(point(0,10),0.006,DIR_RIGHT,50,0,0,30));
+    gos.append(ship(point(5,5),0.00,DIR_RIGHT,50,0,0,30));
+    gos.last().confCmds('w','s','a','d',' ', 'm');
 
+    gos.append(ship(point(20,5),0.00,DIR_RIGHT,50,0,0,30));
+    gos.last().confCmds('5','2','1','3','7', '8');
 
     for(;;)
     {
         bg::clrscr();
 
+        /*int k = -1;
+        if(kbhit() != 0)
+            k = getch();
+        else
+        k=-1;*/
+        int k;
+        k = (kbhit()!=0)? getch() : -1;
         for(int i=0;i<gos.size();i++)
         {
+
+            if(k!=-1)
+                gos[i].recvCmd(k);
             gos[i].paint();
-            gos[i].tic(1000);
+            gos[i].tic(100);
         }
 
         Sleep(100);
