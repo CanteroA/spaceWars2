@@ -54,6 +54,7 @@ void ship::initGraphicObject(point pos, float speed, char dir, int flR, int flL,
     _graphUp.append(graphicChar(point(1,0),'^',BG_GREEN));
 
     fillHitArea();
+    setDir(DIR_RIGHT);
     _hitPower=2;
 
     _sUp= 0;
@@ -96,16 +97,16 @@ void ship::turnRight()
     switch(_direction)
  {
     case DIR_RIGHT:
-        _direction = DIR_DOWN;
+        setDir(DIR_DOWN);
     break;
     case DIR_DOWN:
-        _direction = DIR_LEFT;
+        setDir(DIR_LEFT);
     break;
     case DIR_LEFT:
-        _direction = DIR_TOP;
+        setDir(DIR_TOP);
     break;
     case DIR_TOP:
-        _direction = DIR_RIGHT;
+        setDir(DIR_RIGHT);
     break;
 }
 }

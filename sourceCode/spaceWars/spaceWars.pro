@@ -20,11 +20,13 @@ SOURCES += main.cpp \
     point.cpp \
     graphicchar.cpp \
     graphicobjects.cpp \
-    ship.cpp
+    ship.cpp \
+    gamecontroller.cpp
 
 HEADERS += \
     consoleTools/basicGraphic/basicgraphic.h \
     point.h \
     graphicchar.h \
     graphicobjects.h \
-    ship.h
+    ship.h \
+    gamecontroller.h

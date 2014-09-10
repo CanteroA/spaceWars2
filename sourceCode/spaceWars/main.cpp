@@ -4,6 +4,7 @@
 #include "graphicobjects.h"
 #include "ship.h"
 #include "conio.h"
+#include "gamecontroller.h"
 int main(int argc, char *argv[])
 {
     /*
@@ -283,12 +284,18 @@ int main(int argc, char *argv[])
 
     }
 */
+
+
+    gameController game;
+
     QList<ship> gos;
-    gos.append(ship(point(5,5),0.00,DIR_RIGHT,50,0,0,30));
+    gos.append(ship(point(5,5),0.00,DIR_RIGHT,70,0,0,65));
     gos.last().confCmds('w','s','a','d',' ', 'm');
 
-    gos.append(ship(point(20,5),0.00,DIR_RIGHT,50,0,0,30));
+    gos.append(ship(point(80,5),0.00,DIR_RIGHT,70,0,0,65));
     gos.last().confCmds('5','2','1','3','7', '8');
+
+
 
     for(;;)
     {
@@ -299,6 +306,7 @@ int main(int argc, char *argv[])
             k = getch();
         else
         k=-1;*/
+        game.printUI();
         int k;
         k = (kbhit()!=0)? getch() : -1;
         for(int i=0;i<gos.size();i++)
