@@ -12,8 +12,18 @@ int gameController::printUI()
     }
 
     bg::setColor(BG_DARK_BLUE);
-    bg::gotoxy(0, 75);
+    bg::gotoxy(0, 66);
     std::cout << "Jugador 1";
+
+    bg::setColor(BG_DARK_PINK);
+    bg::gotoxy(35, 66);
+    std::cout << "Jugador 2";
+
+    bg::setColor(BG_DARK_WHITE);
+    bg::gotoxy(62, 66);
+    std::cout << "Jugador 3";
+
+
 
 
     for(int i=1; i<_FIELD_WIDTH+1; i++)
