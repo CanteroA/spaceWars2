@@ -244,8 +244,9 @@ int main(int argc, char *argv[])
 
 
     gameController game;
+    game.run();
 
-    QList<ship> gos;
+    /*QList<ship> gos;
     gos.append(ship(point(5,5),0.00,DIR_RIGHT,70,0,0,65));
     gos.last().confCmds('w','s','a','d',' ', 'm');
 
@@ -263,7 +264,7 @@ int main(int argc, char *argv[])
             k = getch();
         else
         k=-1;*/
-        game.printUI();
+        /*game.printUI();
         int k;
         k = (kbhit()!=0)? getch() : -1;
         for(int i=0;i<gos.size();i++)
@@ -278,7 +279,7 @@ int main(int argc, char *argv[])
         Sleep(200);
 
 
-    }
+    }*/
 
 
     bg::gotoxy(0,40);

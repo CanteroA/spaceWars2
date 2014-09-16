@@ -10,7 +10,10 @@ private:
     static const float _speedMax;
     static const float _speedMin;
     int _sUp,_sDown,_tLeft, _tRight, _fire1, _fire2;
+
+
 public:
+
     ship();
     ship(point pos, float speed, char dir, int flR, int flL, int flT, int flB);
     void speedUp();

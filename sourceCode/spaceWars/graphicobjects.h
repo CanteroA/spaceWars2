@@ -24,7 +24,7 @@ private:
 
     //Esta funcion inicializa los objetos
 protected:
-    void initGraphicObject(point pos, float speed, char dir, int flR, int flL, int flT, int flB);
+    virtual void initGraphicObject(point pos, float speed, char dir, int flR, int flL, int flT, int flB);
     void fillHitArea();
     QList <graphicChar> _graphRight, _graphLeft, _graphUp, _graphDown;
     int _hitPower;
