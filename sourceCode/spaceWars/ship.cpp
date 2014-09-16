@@ -57,10 +57,10 @@ void ship::initGraphicObject(point pos, float speed, char dir, int flR, int flL,
     setDir(DIR_RIGHT);
     _hitPower=2;
 
-    _sUp= 0;
-    _sDown=0;
-    _tLeft=0;
-    _tRight=0;
+    _speedUp= 0;
+    _speedDown=0;
+    _turnLeft=0;
+    _turnRight=0;
     _fire1=0;
     _fire2=0;
 
@@ -141,35 +141,42 @@ void ship::fire2()
 
 }
 
+int ship::confCmd(int sUp, int sDown, int turnRight, int turnLeft, int fire1, int fire2)
+{
+    _speedUp = sUp;
+    _speedDown = sDown;
+    _turnRight = turnRight;
+    _turnLeft = turnLeft;
+    _fire1 = fire1;
+    _fire2 = fire2;
+
+
+}
 int ship::recvCmd(int cmd)
 {
-    if (!(_sUp && _tLeft && _sDown && _tRight && _fire1 && _fire2))
+    if(!(_speedUp && _speedDown && _turnLeft && _turnRight && _fire1 && _fire2))
         return -1;
-    if(cmd == _sUp)
+
+
+    if(cmd == _speedUp)
         speedUp();
-    else if(cmd == _sDown)
+    else if(cmd == _speedDown)
         speedDown();
-    else if (cmd == _tLeft)
+    else if(cmd == _turnLeft)
         turnLeft();
-    else if (cmd == _tRight)
+    else if(cmd == _turnRight)
         turnRight();
-    else if (cmd == _fire1)
+    else if(cmd == _fire1)
         fire1();
-    else if (cmd == _fire2)
+    else if(cmd == _fire2)
         fire2();
     else
         return 0;
 
-}
 
-int ship::confCmds(int sUp, int sDown, int tLeft, int tRight, int fire1, int fire2)
-{
-    _sUp = sUp;
-    _sDown = sDown;
-    _tLeft =  tLeft;
-    _tRight = tRight;
-    _fire1 = fire1;
-    _fire2 = fire2;
+
+    return 1;
+
 
 }
 
