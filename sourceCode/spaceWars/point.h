@@ -15,6 +15,7 @@ public:
     float y() const;
     int xi() const;
     int yi() const;
+    bool roundAndComp(const point &p);
 
 };
 bool operator == (const point& p1,  const point& p2);//operador para comparar puntos

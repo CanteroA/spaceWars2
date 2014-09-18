@@ -4,6 +4,9 @@
 #include <QList>
 #include <sys/time.h>
 #include "conio.h"
+#include "point.h"
+#include "QPoint"
+#include "graphicobjects.h"
 class gameController
 {
 private:
@@ -15,6 +18,8 @@ private:
     int msTime();//leo el tiempo del sistema en milisegundos
     int paintGame();//pibta el espacio de juego
     int recvUserCmd();
+    int checkCollitions();
+
 
 protected:
 
@@ -23,6 +28,7 @@ public:
     gameController();
     int printUI();//Dibuja la interfaz gráfica
     int run();//corre el juego
+
 
 
 

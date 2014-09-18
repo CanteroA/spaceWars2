@@ -1,5 +1,6 @@
 #include "gamecontroller.h"
-const int gameController::_FIELD_HEIGHT = 65;
+
+const int gameController::_FIELD_HEIGHT = 50;
 const int gameController:: _FIELD_WIDTH = 70;
 
 int gameController::printUI()
@@ -157,6 +158,35 @@ int gameController::recvUserCmd()
     }
     return 0;
 }
+
+int gameController::checkCollitions()
+{
+    QList<QPoint> foundCollitions;
+    for (int i=0; i<_gObjects.size();i++)
+    {
+        graphicObjects* currGo = _gObjects[i];
+        for (int j = 0; j < _gObjects.size(); j++)
+        {
+            if (i==j)
+                continue;
+            // tenemos en i y j la forma de como comparar
+            QList<point> hitArea = _gObjects[j]->getHitArea();
+            if (foundCollitions.indexOf(QPoint(i,j))!= -1 )
+                continue;
+            int nHits = _gObjects[i]->checkHit(hitArea);
+            if (nHits > 0)
+                _gObjects[i]->hit(_gObjects[j]);
+                _gObjects[j]->hit(_gObjects[i]);
+                foundCollitions.append(QPoint(i,j));
+                foundCollitions.append(QPoint(j,i));
+
+        }
+    }
+
+
+}
+
+
 
 gameController::gameController()
 {

@@ -111,6 +111,7 @@ int graphicObjects::tic(double time)
 {
     point newPos;
 
+
   //Intenta moverse
     switch(_direction)
     {
@@ -158,6 +159,8 @@ int graphicObjects::tic(double time)
         return -1;
         break;
     }
+
+    point _lastPos = _pos;                                         //Tomar la última posición
 
     //If objInside=true
     if(objInside==true)
@@ -220,6 +223,32 @@ int graphicObjects::checkHit(point p)
             return 1;
     }
     return 0;
+
+}
+
+QList<point> graphicObjects::getHitArea()
+{
+    QList<point> hitArea;
+    switch (_direction)
+    {
+    case DIR_RIGHT:
+        return _hitAreaRight;
+    case DIR_LEFT:
+        return _hitAreaLeft;
+    case DIR_TOP:
+        return _hitAreaUp;
+
+    case DIR_DOWN:
+        return _hitAreaDown;
+
+    }
+
+    for(int i = 0; i<hitArea.size(); i++)
+    {
+
+        hitArea[i].setX(hitArea[i].x()+_pos.x());
+        hitArea[i].setY(hitArea[i].y()+_pos.y());
+    }
 
 }
 
@@ -314,6 +343,14 @@ bool graphicObjects::setDir(char dir)
     _direction=dir;
 
 }
+
+int graphicObjects::hit(const graphicObjects *hitObjects)
+{
+    _speed=0;
+    _pos=lastPos;
+
+}
+
 
 
 
