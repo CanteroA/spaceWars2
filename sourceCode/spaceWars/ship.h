@@ -9,8 +9,11 @@ private:
     static const float _speedStep;
     static const float _speedMax;
     static const float _speedMin;
-    int _sUp,_sDown,_tLeft, _tRight, _fire1, _fire2;
+    int _speedUp,_speedDown,_turnLeft, _turnRight, _fire1, _fire2;
+
+
 public:
+
     ship();
     ship(point pos, float speed, char dir, int flR, int flL, int flT, int flB);
     void speedUp();
@@ -20,7 +23,7 @@ public:
     void fire1();
     void fire2();
     int recvCmd(int cmd);
-    int confCmds(int sUp, int sDown, int tLeft, int tRight, int fire1, int fire2);
+    int confCmd(int sUp, int sDown, int tLeft, int tRight, int fire1, int fire2);
                 //Ejecutar antes de recvCmd
 
 

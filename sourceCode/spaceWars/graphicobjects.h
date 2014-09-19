@@ -23,8 +23,10 @@ private:
     int _edgeRight, _edgeLeft, _edgeTop, _edgeBot;
 
     //Esta funcion inicializa los objetos
+    point lastPos;
+
 protected:
-    void initGraphicObject(point pos, float speed, char dir, int flR, int flL, int flT, int flB);
+    virtual void initGraphicObject(point pos, float speed, char dir, int flR, int flL, int flT, int flB);
     void fillHitArea();
     QList <graphicChar> _graphRight, _graphLeft, _graphUp, _graphDown;
     int _hitPower;
@@ -43,6 +45,14 @@ public:
     void setSpeed(float s);
     void setFieldLimits(int R, int L, int T, int B);
     bool setDir(char dir);
+    QList<point> getHitArea();
+    int hit (const graphicObjects* hitObjects);
+    float getHeight();
+    float getWidth();
+    point getPos();
+
+
+
 
 };
 

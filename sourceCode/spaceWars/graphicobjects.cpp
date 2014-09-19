@@ -36,9 +36,10 @@ void graphicObjects::initGraphicObject(point pos, float speed, char dir, int flR
 
 
     setDir(dir);
+    setFieldLimits(flR,flL,flT,flB);
     setPos(pos);
     setSpeed(speed);
-    setFieldLimits(flR,flL,flT,flB);
+
 
 
 }
@@ -111,6 +112,7 @@ int graphicObjects::tic(double time)
 {
     point newPos;
 
+
   //Intenta moverse
     switch(_direction)
     {
@@ -159,8 +161,10 @@ int graphicObjects::tic(double time)
         break;
     }
 
+    point _lastPos = _pos;                                         //Tomar la última posición
+
     //If objInside=true
-    if(objInside==true)
+   /* if(objInside==true)
     {
         _pos=newPos;
     }
@@ -188,7 +192,11 @@ int graphicObjects::tic(double time)
         }
 
         _speed=0;
-    }
+    }*/
+
+    setPos(newPos);
+    if(objInside!=true)
+        _speed=0;
 }
 
 int graphicObjects::checkHit(point p)
@@ -223,6 +231,32 @@ int graphicObjects::checkHit(point p)
 
 }
 
+QList<point> graphicObjects::getHitArea()
+{
+    QList<point> hitArea;
+    switch (_direction)
+    {
+    case DIR_RIGHT:
+        return _hitAreaRight;
+    case DIR_LEFT:
+        return _hitAreaLeft;
+    case DIR_TOP:
+        return _hitAreaUp;
+
+    case DIR_DOWN:
+        return _hitAreaDown;
+
+    }
+
+    for(int i = 0; i<hitArea.size(); i++)
+    {
+
+        hitArea[i].setX(hitArea[i].x()+_pos.x());
+        hitArea[i].setY(hitArea[i].y()+_pos.y());
+    }
+
+}
+
 int graphicObjects::checkHit(const QList<point> &points)
 {
     ///Check point to point
@@ -241,6 +275,15 @@ void graphicObjects::setPos(float x, float y)
 
 void graphicObjects::setPos(point p)
 {
+    if((p.x()+ getWidth()) >= _fieldLimtRight)
+        p.setX(_fieldLimtRight-1-getWidth());
+    if (p.xi() <= _fieldLimitLeft)
+        p.setX(_fieldLimitLeft + 1);
+    if((p.y()+getHeight())>=_fieldLimitBot)
+        p.setY(_fieldLimitBot-1-getHeight());
+    if(p.yi() <= _fieldLimitTop)
+        p.setY(_fieldLimitTop+1);
+
     _pos=p;
 }
 
@@ -261,12 +304,6 @@ bool graphicObjects::setDir(char dir)
 {
     if (dir>3 || dir<0)//validar
        return false;
-
-
-
-
-    ///]Referencia del actual hit area
-
 
     QList<point>* currentHitArea;
     switch(dir)
@@ -314,6 +351,31 @@ bool graphicObjects::setDir(char dir)
     _direction=dir;
 
 }
+
+int graphicObjects::hit(const graphicObjects *hitObjects)
+{
+    _speed=0;
+    _pos=lastPos;
+
+}
+
+float graphicObjects::getHeight()
+{
+    float height = _edgeBot-_edgeTop;
+    return height;
+}
+
+float graphicObjects::getWidth()
+{
+    float width = _edgeRight-_edgeLeft;
+    return width;
+}
+
+point graphicObjects::getPos()
+{
+    return _pos;
+}
+
 
 
 

@@ -47,6 +47,11 @@ int point::yi() const
     return (int)_posY;
 }
 
+bool point::roundAndComp(const point &p)
+{
+     return (xi()==p.xi())&&(yi()==p.yi());
+}
+
 
 bool operator ==(const point &p1, const point &p2) //operador para comparar puntos
 {

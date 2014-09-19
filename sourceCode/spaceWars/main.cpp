@@ -7,254 +7,211 @@
 #include "gamecontroller.h"
 int main(int argc, char *argv[])
 {
-    /*
-    graphicChar c1(point(4,0),'/',BG_RED);
-    graphicChar c2(point(5,0),'/',BG_BLUE);
-    graphicChar c3(point(3,1),219,BG_GREEN);
-    graphicChar c4(point(4,1),219,BG_GREEN);
-    graphicChar c5(point(5,1),219,BG_GREEN);
-    graphicChar c6(point(6,1),219,BG_GREEN);
-    graphicChar c7(point(7,1),'|',BG_RED);
-    graphicChar c8(point(8,1),'<',BG_YELLOW);
-    graphicChar c9(point(1,2),17,BG_RED);
-    graphicChar c10(point(2,2),219,BG_BLUE);
-    graphicChar c11(point(3,2),219,BG_BLUE);
-    graphicChar c12(point(4,2),3,BG_WHITE);
-    graphicChar c13(point(5,2),4,BG_WHITE);
-    graphicChar c14(point(6,2),5,BG_WHITE);
-    graphicChar c15(point(7,2),6,BG_WHITE);
-    graphicChar c16(point(8,2),'|',BG_RED);
-    graphicChar c17(point(9,2),'<',BG_YELLOW);
-    graphicChar c18(point(3,3),219,BG_GREEN);
-    graphicChar c19(point(4,3),219,BG_GREEN);
-    graphicChar c20(point(5,3),219,BG_GREEN);
-    graphicChar c21(point(6,3),219,BG_GREEN);
-    graphicChar c22(point(7,3),'|',BG_RED);
-    graphicChar c23(point(8,3),'<',BG_YELLOW);
-    graphicChar c24(point(4,4),'\\',BG_RED);
-    graphicChar c25(point(5,4),'\\',BG_BLUE);
+    //Rocket to left
 
-    graphicChar b1(point(4,0),'\\',BG_RED);
-    graphicChar b2(point(5,0),'\\',BG_BLUE);
-    graphicChar b3(point(1,1),'>',BG_GREEN);
-    graphicChar b4(point(2,1),'|',BG_GREEN);
-    graphicChar b5(point(3,1),219,BG_GREEN);
-    graphicChar b6(point(4,1),219,BG_GREEN);
-    graphicChar b7(point(5,1),219,BG_RED);
-    graphicChar b8(point(6,1),219,BG_YELLOW);
-    graphicChar b9(point(0,2),'>',BG_RED);
-    graphicChar b10(point(1,2),'|',BG_BLUE);
-    graphicChar b11(point(2,2),3,BG_BLUE);
-    graphicChar b12(point(3,2),4,BG_WHITE);
-    graphicChar b13(point(4,2),5,BG_WHITE);
-    graphicChar b14(point(5,2),6,BG_WHITE);
-    graphicChar b15(point(6,2),219,BG_WHITE);
-    graphicChar b16(point(7,2),219,BG_RED);
-    graphicChar b17(point(8,2),16,BG_YELLOW);
-    graphicChar b18(point(1,3),'>',BG_GREEN);
-    graphicChar b19(point(2,3),'|',BG_GREEN);
-    graphicChar b20(point(3,3),219,BG_GREEN);
-    graphicChar b21(point(4,3),219,BG_GREEN);
-    graphicChar b22(point(5,3),219,BG_RED);
-    graphicChar b23(point(6,3),219,BG_YELLOW);
-    graphicChar b24(point(4,4),'/',BG_RED);
-    graphicChar b25(point(5,4),'/',BG_BLUE);
+   /* graphicChar c1(point(1, 3), 17, BG_GREEN);
+    graphicChar c2(point(2, 2), '/', BG_GREEN);
+    graphicChar c3(point(2, 3), '<', BG_RED);
+    graphicChar c4(point(2, 4), '\\', BG_GREEN);
+    graphicChar c5(point(3, 2), '<', BG_GREEN);
+    graphicChar c6(point(3, 3), 2 , BG_WHITE);
+    graphicChar c7(point(3, 4), '<', BG_GREEN);
+    graphicChar c8(point(4, 2), '<', BG_GREEN);
+    graphicChar c9(point(4, 3), 'K', BG_CYAN);
+    graphicChar c10(point(4, 4), '<', BG_GREEN);
+    graphicChar c11(point(5, 2), '-', BG_GREEN);
+    graphicChar c12(point(5, 3),219 , BG_WHITE);
+    graphicChar c13(point(5, 4), '-', BG_GREEN);
+    graphicChar c14(point(6, 2), '-', BG_GREEN);
+    graphicChar c15(point(6, 3), 219, BG_WHITE);
+    graphicChar c16(point(6, 4), '-', BG_GREEN);
+    graphicChar c17(point(7, 1), 187, BG_RED);
+    graphicChar c18(point(7, 2), '|', BG_GREEN);
+    graphicChar c19(point(7, 3), '|', BG_GREEN);
+    graphicChar c20(point(7, 4), '|', BG_GREEN);
+    graphicChar c21(point(7, 5), 188, BG_RED);
+    graphicChar c22(point(8, 2), '<', BG_YELLOW);
+    graphicChar c23(point(8, 4), '<', BG_YELLOW);
 
-    //Upside ship
-
-    graphicChar a1(point(4,0),30,BG_RED);
-    graphicChar a2(point(2,1),219,BG_RED);
-    graphicChar a3(point(3,1),219,BG_RED);
-    graphicChar a4(point(4,1),3,BG_RED);
-    graphicChar a5(point(5,1),219,BG_RED);
-    graphicChar a6(point(6,1),219,BG_RED);
-    graphicChar a7(point(1,2),'/',BG_RED);
-    graphicChar a8(point(2,2),219,BG_RED);
-    graphicChar a9(point(3,2),219,BG_RED);
-    graphicChar a10(point(4,2),4,BG_RED);
-    graphicChar a11(point(5,2),219,BG_RED);
-    graphicChar a12(point(6,2),219,BG_RED);
-    graphicChar a13(point(7,2),'\\',BG_RED);
-    //graphicChar a14(point(0,3),'/',BG_RED);
-    graphicChar a15(point(1,3),'/',BG_RED);
-    graphicChar a16(point(2,3),219,BG_RED);
-    graphicChar a17(point(3,3),219,BG_RED);
-    graphicChar a18(point(4,3),5,BG_RED);
-    graphicChar a19(point(5,3),219,BG_RED);
-    graphicChar a20(point(6,3),219,BG_RED);
-    graphicChar a21(point(7,3),'\\',BG_RED);
-    //graphicChar a22(point(8,3),'\\',BG_RED);
-    graphicChar a23(point(2,4),'-',BG_RED);
-    graphicChar a24(point(3,4),'-',BG_RED);
-    graphicChar a25(point(4,4),4,BG_RED);
-    graphicChar a26(point(5,4),'-',BG_RED);
-    graphicChar a27(point(6,4),'-',BG_RED);
-    graphicChar a28(point(2,5),'^',BG_RED);
-    graphicChar a29(point(3,5),'^',BG_RED);
-    graphicChar a30(point(4,5),'-',BG_RED);
-    graphicChar a31(point(5,5),'^',BG_RED);
-    graphicChar a32(point(6,5),'^',BG_RED);
-
-    //downside ship
-
-    graphicChar d1(point(2,0),30,BG_RED);
-    graphicChar d2(point(3,0),30,BG_RED);
-    graphicChar d3(point(4,0),30,BG_RED);
-    graphicChar d4(point(5,0),30,BG_RED);
-    graphicChar d5(point(6,0),30,BG_RED);
-    graphicChar d6(point(2,1),254,BG_RED);
-    graphicChar d7(point(3,1),254,BG_RED);
-    graphicChar d8(point(4,1),254,BG_RED);
-    graphicChar d9(point(5,1),254,BG_RED);
-    graphicChar d10(point(6,1),254,BG_RED);
-    graphicChar d11(point(0,2),'\\',BG_RED);
-    graphicChar d12(point(1,2),'\\',BG_RED);
-    graphicChar d13(point(2,2),219,BG_RED);
-    graphicChar d14(point(3,2),219,BG_RED);
-    graphicChar d15(point(4,2),3,BG_RED);
-    graphicChar d16(point(5,2),219,BG_RED);
-    graphicChar d17(point(6,2),219,BG_RED);
-    graphicChar d18(point(7,2),'/',BG_RED);
-    graphicChar d19(point(8,2),'/',BG_RED);
-    graphicChar d20(point(1,3),'\\',BG_RED);
-    graphicChar d21(point(2,3),219,BG_RED);
-    graphicChar d22(point(3,3),219,BG_RED);
-    graphicChar d23(point(4,3),4,BG_RED);
-    graphicChar d24(point(5,3),219,BG_RED);
-    graphicChar d25(point(6,3),219,BG_RED);
-    graphicChar d26(point(7,3),'/',BG_RED);
-    graphicChar d27(point(6,3),254,BG_RED);
-    graphicChar d28(point(2,4),31,BG_RED);
-    graphicChar d29(point(3,4),31,BG_RED);
-    graphicChar d30(point(4,4),31,BG_RED);
-    graphicChar d31(point(5,4),31,BG_RED);
-    graphicChar d32(point(6,4),31,BG_RED);
-    graphicChar d33(point(4,5),31,BG_RED);
+    point off(15, 5);
+    c1.paint(off);
+    c2.paint(off);
+    c3.paint(off);
+    c4.paint(off);
+    c5.paint(off);
+    c6.paint(off);
+    c7.paint(off);
+    c8.paint(off);
+    c9.paint(off);
+    c10.paint(off);
+    c11.paint(off);
+    c12.paint(off);
+    c13.paint(off);
+    c14.paint(off);
+    c15.paint(off);
+    c16.paint(off);
+    c17.paint(off);
+    c18.paint(off);
+    c19.paint(off);
+    c20.paint(off);
+    c21.paint(off);
+    c22.paint(off);
+    c23.paint(off);
 
 
-    point offset(20,15);
-    c1.paint(offset);
-    c2.paint(offset);
-    c3.paint(offset);
-    c4.paint(offset);
-    c5.paint(offset);
-    c6.paint(offset);
-    c7.paint(offset);
-    c8.paint(offset);
-    c9.paint(offset);
-    c10.paint(offset);
-    c11.paint(offset);
-    c12.paint(offset);
-    c13.paint(offset);
-    c14.paint(offset);
-    c15.paint(offset);
-    c16.paint(offset);
-    c17.paint(offset);
-    c18.paint(offset);
-    c19.paint(offset);
-    c20.paint(offset);
-    c21.paint(offset);
-    c22.paint(offset);
-    c23.paint(offset);
-    c24.paint(offset);
-    c25.paint(offset);
+    //Rocket to Right
 
-    point offsetR(5,5);
-    b1.paint(offsetR);
-    b2.paint(offsetR);
-    b3.paint(offsetR);
-    b4.paint(offsetR);
-    b5.paint(offsetR);
-    b6.paint(offsetR);
-    b7.paint(offsetR);
-    b8.paint(offsetR);
-    b9.paint(offsetR);
-    b10.paint(offsetR);
-    b11.paint(offsetR);
-    b12.paint(offsetR);
-    b13.paint(offsetR);
-    b14.paint(offsetR);
-    b15.paint(offsetR);
-    b16.paint(offsetR);
-    b17.paint(offsetR);
-    b18.paint(offsetR);
-    b19.paint(offsetR);
-    b20.paint(offsetR);
-    b21.paint(offsetR);
-    b22.paint(offsetR);
-    b23.paint(offsetR);
-    b24.paint(offsetR);
-    b25.paint(offsetR);
+    graphicChar d1(point(1, 2), '>', BG_YELLOW);
+    graphicChar d2(point(1, 4), '>', BG_YELLOW);
+    graphicChar d3(point(2, 1), 201, BG_RED);
+    graphicChar d4(point(2, 2), '|', BG_GREEN);
+    graphicChar d5(point(2, 3), '|', BG_GREEN);
+    graphicChar d6(point(2, 4), '|', BG_GREEN);
+    graphicChar d7(point(2, 5), 200, BG_RED);
+    graphicChar d8(point(3, 2), '-', BG_GREEN);
+    graphicChar d9(point(3, 3), 219, BG_WHITE);
+    graphicChar d10(point(3, 4), '-', BG_GREEN);
+    graphicChar d11(point(4, 2), '-', BG_GREEN);
+    graphicChar d12(point(4, 3), 219, BG_WHITE);
+    graphicChar d13(point(4, 4), '-', BG_GREEN);
+    graphicChar d14(point(5, 2), '>', BG_GREEN);
+    graphicChar d15(point(5, 3), 'K', BG_CYAN);
+    graphicChar d16(point(5, 4), '>', BG_GREEN);
+    graphicChar d17(point(6, 2), '>', BG_GREEN);
+    graphicChar d18(point(6, 3), 1, BG_WHITE);
+    graphicChar d19(point(6, 4), '>', BG_GREEN);
+    graphicChar d20(point(7, 2), '\\', BG_GREEN);
+    graphicChar d21(point(7, 3), '>', BG_RED);
+    graphicChar d22(point(7, 4), '/', BG_GREEN);
+    graphicChar d23(point(8, 3), 16, BG_GREEN);
 
-    point offsetU(10,25);
-    a1.paint(offsetU);
-    a2.paint(offsetU);
-    a3.paint(offsetU);
-    a4.paint(offsetU);
-    a5.paint(offsetU);
-    a6.paint(offsetU);
-    a7.paint(offsetU);
-    a8.paint(offsetU);
-    a9.paint(offsetU);
-    a10.paint(offsetU);
-    a11.paint(offsetU);
-    a12.paint(offsetU);
-    a13.paint(offsetU);
-   // a14.paint(offsetU);
-    a15.paint(offsetU);
-    a16.paint(offsetU);
-    a17.paint(offsetU);
-    a18.paint(offsetU);
-    a19.paint(offsetU);
-    a20.paint(offsetU);
-    a21.paint(offsetU);
-    //a22.paint(offsetU);
-    a23.paint(offsetU);
-    a24.paint(offsetU);
-    a25.paint(offsetU);
-    a26.paint(offsetU);
-    a27.paint(offsetU);
-    a28.paint(offsetU);
-    a29.paint(offsetU);
-    a30.paint(offsetU);
-    a31.paint(offsetU);
-    a32.paint(offsetU);
+    point loff(15, 10);
+    d1.paint(loff);
+    d2.paint(loff);
+    d3.paint(loff);
+    d4.paint(loff);
+    d5.paint(loff);
+    d6.paint(loff);
+    d7.paint(loff);
+    d8.paint(loff);
+    d9.paint(loff);
+    d10.paint(loff);
+    d11.paint(loff);
+    d12.paint(loff);
+    d13.paint(loff);
+    d14.paint(loff);
+    d15.paint(loff);
+    d16.paint(loff);
+    d17.paint(loff);
+    d18.paint(loff);
+    d19.paint(loff);
+    d20.paint(loff);
+    d21.paint(loff);
+    d22.paint(loff);
+    d23.paint(loff);
 
-    point offsetD(15,20);
-    d1.paint(offsetD);
-    d2.paint(offsetD);
-    d3.paint(offsetD);
-    d4.paint(offsetD);
-    d5.paint(offsetD);
-    d6.paint(offsetD);
-    d7.paint(offsetD);
-    d8.paint(offsetD);
-    d9.paint(offsetD);
-    d10.paint(offsetD);
-    d11.paint(offsetD);
-    d12.paint(offsetD);
-    d13.paint(offsetD);
-    d14.paint(offsetD);
-    d15.paint(offsetD);
-    d16.paint(offsetD);
-    d17.paint(offsetD);
-    d18.paint(offsetD);
-    d19.paint(offsetD);
-    d20.paint(offsetD);
-    d21.paint(offsetD);
-    d22.paint(offsetD);
-    d23.paint(offsetD);
-    d24.paint(offsetD);
-    d25.paint(offsetD);
-    d26.paint(offsetD);
-    d27.paint(offsetD);
-    d28.paint(offsetD);
-    d29.paint(offsetD);
-    d30.paint(offsetD);
-    d31.paint(offsetD);
-    d32.paint(offsetD);
-    d33.paint(offsetD);
-    */
+
+    //Rocket down
+
+    graphicChar l1(point(2, 1), 'v', BG_YELLOW);
+    graphicChar l2(point(4, 1), 'v', BG_YELLOW);
+    graphicChar l3(point(1, 2), 201, BG_RED);
+    graphicChar l4(point(2, 2), '-', BG_GREEN);
+    graphicChar l5(point(3, 2), '-', BG_GREEN);
+    graphicChar l6(point(4, 2), '-', BG_GREEN);
+    graphicChar l7(point(5, 2), 187, BG_RED);
+    graphicChar l8(point(2, 3), '|', BG_GREEN);
+    graphicChar l9(point(3, 3), 219, BG_WHITE);
+    graphicChar l10(point(4, 3), '|', BG_GREEN);
+    graphicChar l11(point(2, 4), '|', BG_GREEN);
+    graphicChar l12(point(3, 4), 219, BG_WHITE);
+    graphicChar l13(point(2, 5), 'V', BG_GREEN);
+    graphicChar l14(point(3, 5), 1, BG_GREEN);
+    graphicChar l15(point(4, 5), 'V', BG_CYAN);
+    graphicChar l16(point(2, 6), 'V', BG_GREEN);
+    graphicChar l17(point(3, 6), 'K', BG_GREEN);
+    graphicChar l18(point(4, 6), 'V', BG_WHITE);
+    graphicChar l19(point(2, 7), '\\', BG_GREEN);
+    graphicChar l20(point(3, 7), 'V', BG_GREEN);
+    graphicChar l21(point(4, 7), '/', BG_RED);
+    graphicChar l22(point(3, 8), 31, BG_GREEN);
+    graphicChar l23(point(4, 4), '|', BG_GREEN);
+
+    point doff(30, 10);
+    l1.paint(doff);
+    l2.paint(doff);
+    l3.paint(doff);
+    l4.paint(doff);
+    l5.paint(doff);
+    l6.paint(doff);
+    l7.paint(doff);
+    l8.paint(doff);
+    l9.paint(doff);
+    l10.paint(doff);
+    l11.paint(doff);
+    l12.paint(doff);
+    l13.paint(doff);
+    l14.paint(doff);
+    l15.paint(doff);
+    l16.paint(doff);
+    l17.paint(doff);
+    l18.paint(doff);
+    l19.paint(doff);
+    l20.paint(doff);
+    l21.paint(doff);
+    l22.paint(doff);
+    l23.paint(doff);
+
+
+    //Rocket Up
+    graphicChar u1(point(3, 1), 30, BG_YELLOW);
+    graphicChar u2(point(2, 2), '/', BG_YELLOW);
+    graphicChar u3(point(3, 2), '^', BG_RED);
+    graphicChar u4(point(4, 2), '\\', BG_GREEN);
+    graphicChar u5(point(2, 3), '^', BG_GREEN);
+    graphicChar u6(point(3, 3), 1, BG_GREEN);
+    graphicChar u7(point(4, 3), '^', BG_RED);
+    graphicChar u8(point(2, 4), '^', BG_GREEN);
+    graphicChar u9(point(3, 4), 'K', BG_WHITE);
+    graphicChar u10(point(4, 4), '^', BG_GREEN);
+    graphicChar u11(point(2, 5), '|', BG_GREEN);
+    graphicChar u12(point(3, 5), 219, BG_WHITE);
+    graphicChar u13(point(5, 5), '|', BG_GREEN);
+    graphicChar u14(point(2, 6), '|', BG_GREEN);
+    graphicChar u15(point(3, 6), 219, BG_CYAN);
+    graphicChar u16(point(4, 6), '|', BG_GREEN);
+    graphicChar u17(point(1, 7), 200, BG_GREEN);
+    graphicChar u18(point(2, 7), '-', BG_WHITE);
+    graphicChar u19(point(3, 7), '-', BG_GREEN);
+    graphicChar u20(point(4, 7), '-', BG_GREEN);
+    graphicChar u21(point(5, 7), 188, BG_RED);
+    graphicChar u22(point(2, 8), '^', BG_GREEN);
+    graphicChar u23(point(4, 8), '^', BG_GREEN);
+
+    point uoff(45, 10);
+    u1.paint(uoff);
+    u2.paint(uoff);
+    u3.paint(uoff);
+    u4.paint(uoff);
+    u5.paint(uoff);
+    u6.paint(uoff);
+    u7.paint(uoff);
+    u8.paint(uoff);
+    u9.paint(uoff);
+    u10.paint(uoff);
+    u11.paint(uoff);
+    u12.paint(uoff);
+    u13.paint(uoff);
+    u14.paint(uoff);
+    u15.paint(uoff);
+    u16.paint(uoff);
+    u17.paint(uoff);
+    u18.paint(uoff);
+    u19.paint(uoff);
+    u20.paint(uoff);
+    u21.paint(uoff);
+    u22.paint(uoff);
+    u23.paint(uoff);*/
 
 
     /*
@@ -287,8 +244,9 @@ int main(int argc, char *argv[])
 
 
     gameController game;
+    game.run();
 
-    QList<ship> gos;
+    /*QList<ship> gos;
     gos.append(ship(point(5,5),0.00,DIR_RIGHT,70,0,0,65));
     gos.last().confCmds('w','s','a','d',' ', 'm');
 
@@ -306,7 +264,7 @@ int main(int argc, char *argv[])
             k = getch();
         else
         k=-1;*/
-        game.printUI();
+        /*game.printUI();
         int k;
         k = (kbhit()!=0)? getch() : -1;
         for(int i=0;i<gos.size();i++)
@@ -318,10 +276,10 @@ int main(int argc, char *argv[])
             gos[i].tic(100);
         }
 
-        Sleep(100);
+        Sleep(200);
 
 
-    }
+    }*/
 
 
     bg::gotoxy(0,40);
