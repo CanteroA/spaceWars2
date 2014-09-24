@@ -36,9 +36,11 @@ void graphicObjects::initGraphicObject(point pos, float speed, char dir, int flR
 
 
     setDir(dir);
+    setSpeed(speed);
     setFieldLimits(flR,flL,flT,flB);
     setPos(pos);
-    setSpeed(speed);
+    _alive=true;
+
 
 
 
@@ -161,7 +163,7 @@ int graphicObjects::tic(double time)
         break;
     }
 
-    point _lastPos = _pos;                                         //Tomar la última posición
+   lastPos = _pos;                                         //Tomar la última posición
 
     //If objInside=true
    /* if(objInside==true)
@@ -194,16 +196,19 @@ int graphicObjects::tic(double time)
         _speed=0;
     }*/
 
+
     setPos(newPos);
     if(objInside!=true)
         _speed=0;
+
+    return 0;
 }
 
 int graphicObjects::checkHit(point p)
 {
 
     p.setX(p.x()-_pos.x());//transformar de global a local
-    p.setY(p.y()-_pos.x());
+    p.setY(p.y()-_pos.y());
 
     ///Grabbing reference of current hit Area
     QList<point>* currentHitArea;
@@ -224,7 +229,7 @@ int graphicObjects::checkHit(point p)
     }
 
     for(int i=0;i<currentHitArea->size();i++){
-        if(p==currentHitArea->at(i))
+        if(p.roundAndComp(currentHitArea->at(i)))
             return 1;
     }
     return 0;
@@ -237,14 +242,18 @@ QList<point> graphicObjects::getHitArea()
     switch (_direction)
     {
     case DIR_RIGHT:
-        return _hitAreaRight;
+        hitArea = _hitAreaRight;
+        break;
     case DIR_LEFT:
-        return _hitAreaLeft;
+        hitArea = _hitAreaLeft;
+        break;
     case DIR_TOP:
-        return _hitAreaUp;
-
+        hitArea = _hitAreaUp;
+        break;
     case DIR_DOWN:
-        return _hitAreaDown;
+        hitArea = _hitAreaDown;
+        break;
+
 
     }
 
@@ -254,6 +263,8 @@ QList<point> graphicObjects::getHitArea()
         hitArea[i].setX(hitArea[i].x()+_pos.x());
         hitArea[i].setY(hitArea[i].y()+_pos.y());
     }
+
+    return hitArea;
 
 }
 
@@ -357,6 +368,8 @@ int graphicObjects::hit(const graphicObjects *hitObjects)
     _speed=0;
     _pos=lastPos;
 
+    return 0;
+
 }
 
 float graphicObjects::getHeight()
@@ -374,6 +387,16 @@ float graphicObjects::getWidth()
 point graphicObjects::getPos()
 {
     return _pos;
+}
+
+int graphicObjects::getHitPower() const
+{
+    return _hitPower;
+}
+
+bool graphicObjects::alive()
+{
+   return _alive;
 }
 
 

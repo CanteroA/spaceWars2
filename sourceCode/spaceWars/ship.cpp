@@ -56,6 +56,7 @@ void ship::initGraphicObject(point pos, float speed, char dir, int flR, int flL,
     fillHitArea();
     setDir(DIR_RIGHT);
     _hitPower=2;
+    _lifes=9;
 
     _speedUp= 0;
     _speedDown=0;
@@ -63,6 +64,7 @@ void ship::initGraphicObject(point pos, float speed, char dir, int flR, int flL,
     _turnRight=0;
     _fire1=0;
     _fire2=0;
+
 
 }
 
@@ -184,6 +186,20 @@ int ship::confCmd(int sUp, int sDown, int turnRight, int turnLeft, int fire1, in
     _turnLeft = turnLeft;
     _fire1 = fire1;
     _fire2 = fire2;
+}
+
+int ship::getLifes()
+{
+    return _lifes;
+}
+
+int ship::hit(const graphicObjects *hitObject)
+{
+    graphicObjects::hit(hitObject);
+    _lifes-=hitObject->getHitPower();
+    if(_lifes<=0)
+        _alive=false;
+    return 0;
 }
 int ship::recvCmd(int cmd)
 {

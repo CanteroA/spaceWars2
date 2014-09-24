@@ -25,6 +25,9 @@ private:
     //Esta funcion inicializa los objetos
     point lastPos;
 
+
+
+
 protected:
     virtual void initGraphicObject(point pos, float speed, char dir, int flR, int flL, int flT, int flB);
     void fillHitArea();
@@ -32,6 +35,9 @@ protected:
     int _hitPower;
     float _speed;
     char _direction;
+    bool _alive;
+
+
 public:
     //Initialize all members
     graphicObjects();
@@ -46,10 +52,12 @@ public:
     void setFieldLimits(int R, int L, int T, int B);
     bool setDir(char dir);
     QList<point> getHitArea();
-    int hit (const graphicObjects* hitObjects);
+    virtual int hit (const graphicObjects* hitObjects);
     float getHeight();
     float getWidth();
     point getPos();
+    int getHitPower() const;
+    bool alive();
 
 
 

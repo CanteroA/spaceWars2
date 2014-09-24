@@ -10,6 +10,7 @@ private:
     static const float _speedMax;
     static const float _speedMin;
     int _speedUp,_speedDown,_turnLeft, _turnRight, _fire1, _fire2;
+    int _lifes;
 
 
 public:
@@ -24,6 +25,8 @@ public:
     void fire2();
     int recvCmd(int cmd);
     int confCmd(int sUp, int sDown, int tLeft, int tRight, int fire1, int fire2);
+    int getLifes();
+    virtual int hit(const graphicObjects* hitObject);
                 //Ejecutar antes de recvCmd
 
 
