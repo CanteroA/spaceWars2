@@ -112,7 +112,10 @@ int gameController::run()
             _gObjects[i]->tic(elapsedTime);
         //TODO: Evaluar colisiones
 
+
         checkCollitions();
+
+        addNewGraphicObjects();
         removeTheObjects();
         paintGame();
         recvUserCmd();
@@ -122,6 +125,15 @@ int gameController::run()
     return 0;
 
 
+}
+
+int gameController::addNewGraphicObjects()
+{
+    for (int i = 0; i<_gObjects.size(); i++)
+    {
+        _gObjects.append(_gObjects[i]->createGO());
+    }
+    return 0;
 }
 
 int gameController::initGobjects()

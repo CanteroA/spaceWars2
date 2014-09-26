@@ -284,18 +284,32 @@ void graphicObjects::setPos(float x, float y)
     setPos(point(x,y));
 }
 
-void graphicObjects::setPos(point p)
+int graphicObjects::setPos(point p)
 {
+    int retValue = 0;
     if((p.x()+ getWidth()) >= _fieldLimtRight)
+    {
         p.setX(_fieldLimtRight-1-getWidth());
+        retValue = 1;
+    }
     if (p.xi() <= _fieldLimitLeft)
+    {
         p.setX(_fieldLimitLeft + 1);
+        retValue = 1;
+    }
     if((p.y()+getHeight())>=_fieldLimitBot)
+    {
         p.setY(_fieldLimitBot-1-getHeight());
+        retValue = 1;
+    }
     if(p.yi() <= _fieldLimitTop)
+    {
         p.setY(_fieldLimitTop+1);
+        retValue = 1;
+    }
 
     _pos=p;
+    return retValue;
 }
 
 void graphicObjects::setSpeed(float s)
@@ -396,7 +410,13 @@ int graphicObjects::getHitPower() const
 
 bool graphicObjects::alive()
 {
-   return _alive;
+    return _alive;
+}
+
+QList<graphicObjects *> graphicObjects::createGO()
+{
+    return QList<graphicObjects*>();
+
 }
 
 

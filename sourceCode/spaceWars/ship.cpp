@@ -3,6 +3,7 @@
 const float ship::_speedStep = 0.02;
 const float ship::_speedMax = 0.05;
 const float ship::_speedMin = 0;
+const float ship::_bulletSpeed = ship::_speedMax;
 
 void ship::initGraphicObject(point pos, float speed, char dir, int flR, int flL, int flT, int flB)
 {
@@ -54,7 +55,7 @@ void ship::initGraphicObject(point pos, float speed, char dir, int flR, int flL,
     _graphUp.append(graphicChar(point(1,0),'^',BG_GREEN));
 
     fillHitArea();
-    setDir(DIR_RIGHT);
+    setDir(dir);
     _hitPower=2;
     _lifes=9;
 
@@ -170,7 +171,26 @@ void ship::turnLeft()
 
 void ship::fire1()
 {
-
+    bullet* b = new bullet(getPos(), _bulletSpeed, _direction, _fieldLimtRight, _fieldLimitLeft, _fieldLimitTop, _fieldLimitBot );
+    float w = getWidth();
+    float h = getHeight();
+    switch (_direction) {
+    case DIR_RIGHT:
+            b->setPos(point((getPos().x()+w), (getPos().y()+(w/2))));
+        break;
+    case DIR_LEFT:
+            b->setPos(point((getPos().x()-1), (getPos().y()+(w/2))));
+        break;
+    case DIR_DOWN:
+            b->setPos(point((getPos().x()+(w/2)), (getPos().y()+h)));
+        break;
+    case DIR_TOP:
+            b->setPos(point(getPos().x()+(w/2), (getPos().y()-1)));
+        break;
+    default:
+        break;
+    }
+    _bulletFired.append(b);
 }
 
 void ship::fire2()
@@ -200,6 +220,13 @@ int ship::hit(const graphicObjects *hitObject)
     if(_lifes<=0)
         _alive=false;
     return 0;
+}
+
+QList<graphicObjects *> ship::createGO()
+{
+    QList<graphicObjects*> ret = _bulletFired;
+    _bulletFired.clear();
+    return ret;
 }
 int ship::recvCmd(int cmd)
 {

@@ -31,6 +31,7 @@ public:
     gameController();
     int printUI();//Dibuja la interfaz gráfica
     int run();//corre el juego
+    int addNewGraphicObjects();
 
 
 

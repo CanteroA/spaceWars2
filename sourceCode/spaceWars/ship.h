@@ -1,6 +1,7 @@
 #ifndef SHIP_H
 #define SHIP_H
 #include "graphicobjects.h"
+#include "bullet.h"
 
 class ship:public graphicObjects
 {
@@ -11,7 +12,8 @@ private:
     static const float _speedMin;
     int _speedUp,_speedDown,_turnLeft, _turnRight, _fire1, _fire2;
     int _lifes;
-
+    static const float _bulletSpeed;
+    QList<graphicObjects*> _bulletFired;
 
 public:
 
@@ -27,6 +29,7 @@ public:
     int confCmd(int sUp, int sDown, int tLeft, int tRight, int fire1, int fire2);
     int getLifes();
     virtual int hit(const graphicObjects* hitObject);
+    QList<graphicObjects*> createGO();
                 //Ejecutar antes de recvCmd
 
 
