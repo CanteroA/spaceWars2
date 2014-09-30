@@ -1,6 +1,6 @@
 #include "gamecontroller.h"
 
-const int gameController::_FIELD_HEIGHT = 50;
+const int gameController::_FIELD_HEIGHT = 47;
 const int gameController:: _FIELD_WIDTH = 70;
 
 int gameController::printUI()
@@ -27,7 +27,7 @@ int gameController::printUI()
 
 
     bg::setColor(BG_PINK);
-    bg::gotoxy(0,66);
+    bg::gotoxy(0,48);
     std::cout << "PLAYER 1 (" ;
     bg::setColor(BG_DARK_GRAY);
     if(_player1)
@@ -36,22 +36,22 @@ int gameController::printUI()
         std::cout << "DX";
     bg::setColor(BG_PINK);
     std::cout << ")";
-    bg::gotoxy(0,67);
+    bg::gotoxy(0,49);
     std::cout<<"Speed Up : W";
-    bg::gotoxy(0,68);
+    bg::gotoxy(0,50);
     std::cout<<"Speed Down : S";
-    bg::gotoxy(0,69);
+    bg::gotoxy(0,51);
     std::cout<<"Turn Right : D";
-    bg::gotoxy(0,70);
+    bg::gotoxy(0,52);
     std::cout<<"Turn Left : A";
-    bg::gotoxy(0,71);
+    bg::gotoxy(0,53);
     std::cout<<"Fire 1 : SPACE";
-    bg::gotoxy(0,72);
+    bg::gotoxy(0,54);
     std::cout<<"Fire 2 : M";
 
 
     bg::setColor(BG_RED);
-    bg::gotoxy(20,66);
+    bg::gotoxy(20,48);
     std::cout<<"PLAYER 2 (";
     bg::setColor(BG_DARK_GRAY);
     if(_player2)
@@ -60,21 +60,21 @@ int gameController::printUI()
         std::cout << "DX";
     bg::setColor(BG_RED);
     std::cout << ")";
-    bg::gotoxy(20,67);
+    bg::gotoxy(20,49);
     std::cout<<"Speed Up : 5";
-    bg::gotoxy(20,68);
+    bg::gotoxy(20,50);
     std::cout<<"Speed Down : 2";
-    bg::gotoxy(20,69);
+    bg::gotoxy(20,51);
     std::cout<<"Turn Right : 3";
-    bg::gotoxy(20,70);
+    bg::gotoxy(20,52);
     std::cout<<"Turn Left : 1";
-    bg::gotoxy(20,71);
+    bg::gotoxy(20,53);
     std::cout<<"Fire 1 : 0";
-    bg::gotoxy(20,72);
+    bg::gotoxy(20,54);
     std::cout<<"Fire 2 : .";
 
     bg::setColor(BG_CYAN);
-    bg::gotoxy(40,66);
+    bg::gotoxy(40,48);
     std::cout<<"PLAYER 3 (";
     bg::setColor(BG_DARK_GRAY);
     if(_player3)
@@ -83,17 +83,17 @@ int gameController::printUI()
         std::cout << "DX";
     bg::setColor(BG_CYAN);
     std::cout << ")";
-    bg::gotoxy(40,67);
+    bg::gotoxy(40,49);
     std::cout<<"Speed Up : I";
-    bg::gotoxy(40,68);
+    bg::gotoxy(40,50);
     std::cout<<"Speed Down : K";
-    bg::gotoxy(40,69);
+    bg::gotoxy(40,51);
     std::cout<<"Turn Right : L";
-    bg::gotoxy(40,70);
+    bg::gotoxy(40,52);
     std::cout<<"Turn Left : J";
-    bg::gotoxy(40,71);
+    bg::gotoxy(40,53);
     std::cout<<"Fire 1 : U";
-    bg::gotoxy(40,72);
+    bg::gotoxy(40,54);
     std::cout<<"Fire 2 : O";
 
     return 0;
