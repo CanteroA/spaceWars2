@@ -48,7 +48,8 @@ int gameController::printUI()
     std::cout<<"Fire 1 : SPACE";
     bg::gotoxy(0,54);
     std::cout<<"Fire 2 : M";
-
+    bg::gotoxy(0,55);
+    std::cout<<_player1->getNumberFires();
 
     bg::setColor(BG_RED);
     bg::gotoxy(20,48);

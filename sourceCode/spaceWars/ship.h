@@ -15,7 +15,7 @@ private:
     int _lifes;
     static const float _bulletSpeed;
     QList<graphicObjects*> _bulletFired;
-
+    int _numberFires;
 public:
 
     ship();
@@ -29,6 +29,7 @@ public:
     int recvCmd(int cmd);
     int confCmd(int sUp, int sDown, int tLeft, int tRight, int fire1, int fire2);
     int getLifes();
+    int getNumberFires();
     virtual int hit(const graphicObjects* hitObject);
     QList<graphicObjects*> createGO();
                 //Ejecutar antes de recvCmd

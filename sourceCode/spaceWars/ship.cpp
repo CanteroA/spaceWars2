@@ -58,6 +58,7 @@ void ship::initGraphicObject(point pos, float speed, char dir, int flR, int flL,
     setDir(dir);
     _hitPower=2;
     _lifes=9;
+    _numberFires = 3;
 
     _speedUp= 0;
     _speedDown=0;
@@ -216,7 +217,12 @@ void ship::fire2()
     default:
         break;
     }
+
+    if(_numberFires != 0)
+    {
     _bulletFired.append(b);
+    _numberFires = _numberFires-1;
+    }
 }
 
 int ship::confCmd(int sUp, int sDown, int turnRight, int turnLeft, int fire1, int fire2)
@@ -232,6 +238,11 @@ int ship::confCmd(int sUp, int sDown, int turnRight, int turnLeft, int fire1, in
 int ship::getLifes()
 {
     return _lifes;
+}
+
+int ship::getNumberFires()
+{
+    return _numberFires;
 }
 
 int ship::hit(const graphicObjects *hitObject)
