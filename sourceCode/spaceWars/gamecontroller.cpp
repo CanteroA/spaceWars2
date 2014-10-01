@@ -107,6 +107,8 @@ int gameController::run()
     {
         int elapsedTime= msTime()-time;
         time=msTime();
+        addNewGraphicObjects();
+
 
         for(int i=0;i<_gObjects.size();i++)
             _gObjects[i]->tic(elapsedTime);
@@ -115,7 +117,7 @@ int gameController::run()
 
         checkCollitions();
 
-        addNewGraphicObjects();
+
         removeTheObjects();
         paintGame();
         recvUserCmd();

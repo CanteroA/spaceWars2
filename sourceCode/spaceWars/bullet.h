@@ -5,12 +5,14 @@
 class bullet:public graphicObjects
 {
 private:
-    void initGraphicObject(point pos, float speed, char dir, int flR, int flL, int flT, int flB);
 
 
-public:    
+protected:
+    virtual void initGraphicObject(point pos, float speed, char dir, int flR, int flL, int flT, int flB);
+
+public:
     bullet(point pos, float speed, char dir, int flR, int flL, int flT, int flB);
-    int setPos(point p);
+    virtual int setPos(point p);
     virtual int hit (const graphicObjects* hitObjects);
 
 };

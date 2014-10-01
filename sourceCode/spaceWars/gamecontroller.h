@@ -7,6 +7,8 @@
 #include "point.h"
 #include "QPoint"
 #include "graphicobjects.h"
+
+
 class gameController
 {
 private:

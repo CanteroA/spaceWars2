@@ -2,11 +2,12 @@
 #define SHIP_H
 #include "graphicobjects.h"
 #include "bullet.h"
+#include "bullet2.h"
 
 class ship:public graphicObjects
 {
 private:
-    void initGraphicObject(point pos, float speed, char dir, int flR, int flL, int flT, int flB);
+    virtual void initGraphicObject(point pos, float speed, char dir, int flR, int flL, int flT, int flB);
     static const float _speedStep;
     static const float _speedMax;
     static const float _speedMin;
