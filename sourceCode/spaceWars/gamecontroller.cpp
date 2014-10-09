@@ -95,7 +95,7 @@ int gameController::printUI()
     bg::gotoxy(40,53);
     std::cout<<"Fire 1 : U";
     bg::gotoxy(40,54);
-    std::cout<<"Fire 2 : O";
+    std::cout<<"Fire 2 : O (" << _player3->getNumberFires()<<")";
 
     return 0;
 }
