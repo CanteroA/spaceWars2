@@ -233,6 +233,8 @@ int ship::confCmd(int sUp, int sDown, int turnRight, int turnLeft, int fire1, in
     _turnLeft = turnLeft;
     _fire1 = fire1;
     _fire2 = fire2;
+
+    return 0;
 }
 
 int ship::getLifes()
@@ -243,6 +245,16 @@ int ship::getLifes()
 int ship::getNumberFires()
 {
     return _numberFires;
+}
+
+int ship::lose()
+{
+    return 1;
+}
+
+void ship::win()
+{
+    std::cout << "Player is winner" << std::endl;
 }
 
 int ship::hit(const graphicObjects *hitObject)

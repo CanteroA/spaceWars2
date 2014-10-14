@@ -22,6 +22,7 @@ private:
     int recvUserCmd();
     int checkCollitions();
     int removeTheObjects();
+    void winner();
     ship* _player1;
     ship* _player2;
     ship* _player3;

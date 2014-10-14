@@ -239,6 +239,7 @@ int gameController::removeTheObjects()
         {
             if(_gObjects[i]==_player1)
                 _player1=0;
+
             if(_gObjects[i]==_player2)
                 _player2=0;
             if(_gObjects[i]==_player3)
@@ -246,7 +247,36 @@ int gameController::removeTheObjects()
             delete _gObjects[i];
             _gObjects.removeAt(i);
             i--;
+
+            if(_gObjects.size()==1)
+            {
+               // bg::clrscr();
+                std::cout << "winner" << std::endl;
+            }
         }
+
+
+}
+
+void gameController::winner()
+{
+
+    /*if(_player1->ship::alive() == false)
+        _player1->lose();
+    if(_player2->ship::alive() == false)
+        _player2->lose();
+    if(_player3->ship::alive() == false)
+        _player3->lose();
+
+
+
+    if(_player1->lose() && _player2->lose())
+        _player3->win();
+    if(_player1->lose() && _player3->lose())
+        _player2->win();
+    if(_player2->lose() && _player3->lose())
+        _player1->win();
+    */
 
 
 }

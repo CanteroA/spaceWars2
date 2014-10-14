@@ -246,6 +246,7 @@ int main(int argc, char *argv[])
     gameController game;
     game.run();
 
+
     /*QList<ship> gos;
     gos.append(ship(point(5,5),0.00,DIR_RIGHT,70,0,0,65));
     gos.last().confCmds('w','s','a','d',' ', 'm');
