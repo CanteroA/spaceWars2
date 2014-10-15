@@ -254,6 +254,7 @@ int ship::lose()
 
 void ship::win()
 {
+    bg::clrscr();
     std::cout << "Player is winner" << std::endl;
 }
 
