@@ -23,7 +23,8 @@ SOURCES += main.cpp \
     ship.cpp \
     gamecontroller.cpp \
     bullet.cpp \
-    bullet2.cpp
+    bullet2.cpp \
+    ship2.cpp
 
 HEADERS += \
     consoleTools/basicGraphic/basicgraphic.h \
@@ -33,4 +34,5 @@ HEADERS += \
     ship.h \
     gamecontroller.h \
     bullet.h \
-    bullet2.h
+    bullet2.h \
+    ship2.h

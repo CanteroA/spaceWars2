@@ -35,6 +35,8 @@ public:
     int printUI();//Dibuja la interfaz gráfica
     int run();//corre el juego
     int addNewGraphicObjects();
+    int getMsTime();
+
 
 
 

@@ -15,7 +15,8 @@ private:
     int _lifes;
     static const float _bulletSpeed;
     QList<graphicObjects*> _bulletFired;
-    int _numberFires;    
+    int _numberFires;
+    int msTime();
 
 public:
 

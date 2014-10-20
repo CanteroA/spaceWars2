@@ -139,6 +139,12 @@ int gameController::addNewGraphicObjects()
     return 0;
 }
 
+int gameController::getMsTime()
+{
+    int ms=msTime();
+    return ms;
+}
+
 int gameController::initGobjects()
 {
     //Borro objetos en la lista

@@ -70,6 +70,14 @@ void ship::initGraphicObject(point pos, float speed, char dir, int flR, int flL,
 
 }
 
+int ship::msTime()
+{
+    struct timeval tV;
+    gettimeofday(&tV,NULL);
+    int ms = tV.tv_sec * 1000 + tV.tv_usec/1000;
+    return ms;
+}
+
 ship::ship()
 {
 
@@ -191,6 +199,7 @@ void ship::fire1()
     default:
         break;
     }
+
     _bulletFired.append(b);
 }
 
